@@ -64,20 +64,38 @@ nextQuestion();
 
 // **結果をGoogleスプレッドシートに送信**
 function sendTestResult(name, score, correct, incorrect) {
-    var url = "https://script.google.com/macros/s/AKfycbybv4GtCh1AxAyNPj9Qnd2k3p4j4y9if-FaNY8EgKj4oK5sNq97jvb1-BQCsAeIXkqNcA/exec"; // ここにデプロイURLを貼る
-
     var data = {
-        name: name,
-        score: score,
-        correct: correct,
-        incorrect: incorrect
+      name: name,  // 名前を追加
+      score: score,
+      correct: correct,
+      incorrect: incorrect
     };
-
+  
+    const url = "https://script.google.com/macros/s/AKfycb...(あなたのGASのURL).../exec"; // GASのデプロイURL
+  
     fetch(url, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
     })
+      .then(response => response.json())
+      .then(result => console.log("Success:", result))
+      .catch(error => console.error("Error:", error));
+function sendTestResult(name, score, correct, incorrect) {
+  var data = {
+    name: name,  // 名前を追加
+    score: score,
+    correct: correct,
+    incorrect: incorrect
+  };
+
+  const url = "https://script.google.com/macros/s/AKfycb...(あなたのGASのURL).../exec"; // GASのデプロイURL
+
+  fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data)
+  })
     .then(response => response.json())
     .then(result => console.log("Success:", result))
     .catch(error => console.error("Error:", error));
