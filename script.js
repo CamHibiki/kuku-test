@@ -61,9 +61,15 @@ generateQuestions();
 nextQuestion();
 
 // **結果をGoogleスプレッドシートに送信**
-function sendTestResult(name, score, correct, incorrect) {
-    var url = "GASのWebアプリURL"; // ここにデプロイしたGASのURLを入れる
-    var data = { name: name, score: score, correct: correct, incorrect: incorrect };
+ function sendTestResult(name, score, correct, incorrect) {
+    var url = "https://script.google.com/macros/s/AKfycbybv4GtCh1AxAyNPj9Qnd2k3p4j4y9if-FaNY8EgKj4oK5sNq97jvb1-BQCsAeIXkqNcA/exec"; // ここにGASのデプロイURLを貼り付ける
+
+    var data = {
+        name: name,
+        score: score,
+        correct: correct,
+        incorrect: incorrect
+    };
 
     fetch(url, {
         method: "POST",
@@ -74,6 +80,7 @@ function sendTestResult(name, score, correct, incorrect) {
     .then(result => console.log("Success:", result))
     .catch(error => console.error("Error:", error));
 }
+
 
 // **テスト終了時に結果を送信**
 function finishTest() {
