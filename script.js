@@ -64,7 +64,7 @@ nextQuestion();
 
 // **結果をGoogleスプレッドシートに送信**
 function sendTestResult(name, score, correct, incorrect) {
-    var url = "【GASのデプロイURL】"; // ここにデプロイURLを貼る
+    var url = "https://script.google.com/macros/s/AKfycbybv4GtCh1AxAyNPj9Qnd2k3p4j4y9if-FaNY8EgKj4oK5sNq97jvb1-BQCsAeIXkqNcA/exec"; // ここにデプロイURLを貼る
 
     var data = {
         name: name,
