@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>九九テスト</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        #quiz-container { margin: 50px auto; width: 300px; }
+        #question { font-size: 24px; margin-bottom: 10px; }
+        #timer { color: red; font-size: 18px; margin-top: 10px; }
+        input { font-size: 18px; padding: 5px; width: 100px; }
+        button { font-size: 18px; padding: 5px 10px; }
+    </style>
+</head>
+<body>
+    <h1>九九テスト</h1>
+    <div id="quiz-container">
+        <p id="question">問題がここに表示されます</p>
+        <input type="number" id="answer" placeholder="答え">
+        <button onclick="submitAnswer()">送信</button>
+        <p id="timer">残り時間: 10秒</p>
+        <p id="score">スコア: 0</p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
